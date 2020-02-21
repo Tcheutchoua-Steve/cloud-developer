@@ -1,0 +1,173 @@
+{
+  "kubeone_api": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "endpoint": "string"
+      }
+    ],
+    "value": {
+      "endpoint": "udagram-api-lb-57e5d684c5b6b3d7.elb.us-east-1.amazonaws.com"
+    }
+  },
+  "kubeone_hosts": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "control_plane": [
+          "object",
+          {
+            "cloud_provider": "string",
+            "cluster_name": "string",
+            "hostnames": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "private_address": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "public_address": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "ssh_agent_socket": "string",
+            "ssh_port": "number",
+            "ssh_private_key_file": "string",
+            "ssh_user": "string"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "control_plane": {
+        "cloud_provider": "aws",
+        "cluster_name": "udagram",
+        "hostnames": [
+          "ip-172-31-13-149.ec2.internal",
+          "ip-172-31-92-163.ec2.internal",
+          "ip-172-31-20-10.ec2.internal"
+        ],
+        "private_address": [
+          "172.31.13.149",
+          "172.31.92.163",
+          "172.31.20.10"
+        ],
+        "public_address": [
+          "18.210.7.125",
+          "3.91.230.62",
+          "3.85.143.180"
+        ],
+        "ssh_agent_socket": "env:SSH_AUTH_SOCK",
+        "ssh_port": 22,
+        "ssh_private_key_file": "",
+        "ssh_user": "ubuntu"
+      }
+    }
+  },
+  "kubeone_workers": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "udagram-pool1": [
+          "object",
+          {
+            "providerSpec": [
+              "object",
+              {
+                "cloudProviderSpec": [
+                  "object",
+                  {
+                    "ami": "string",
+                    "availabilityZone": "string",
+                    "diskIops": "number",
+                    "diskSize": "number",
+                    "diskType": "string",
+                    "instanceProfile": "string",
+                    "instanceType": "string",
+                    "region": "string",
+                    "securityGroupIDs": [
+                      "tuple",
+                      [
+                        "string"
+                      ]
+                    ],
+                    "subnetId": "string",
+                    "tags": [
+                      "object",
+                      {
+                        "udagram-workers": "string"
+                      }
+                    ],
+                    "vpcId": "string"
+                  }
+                ],
+                "operatingSystem": "string",
+                "operatingSystemSpec": [
+                  "object",
+                  {
+                    "distUpgradeOnBoot": "bool"
+                  }
+                ],
+                "sshPublicKeys": [
+                  "tuple",
+                  [
+                    "string"
+                  ]
+                ]
+              }
+            ],
+            "replicas": "number"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "udagram-pool1": {
+        "providerSpec": {
+          "cloudProviderSpec": {
+            "ami": "ami-046842448f9e74e7d",
+            "availabilityZone": "us-east-1a",
+            "diskIops": 500,
+            "diskSize": 50,
+            "diskType": "gp2",
+            "instanceProfile": "udagram-host",
+            "instanceType": "t3.medium",
+            "region": "us-east-1",
+            "securityGroupIDs": [
+              "sg-0be2be2d51c6d2252"
+            ],
+            "subnetId": "subnet-dff017b9",
+            "tags": {
+              "udagram-workers": "pool1"
+            },
+            "vpcId": "vpc-a5380bdf"
+          },
+          "operatingSystem": "ubuntu",
+          "operatingSystemSpec": {
+            "distUpgradeOnBoot": false
+          },
+          "sshPublicKeys": [
+            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDT0R6KI7j5t8hsBiiw5mgRMwSjkuR8v/Pa5neLMGHsZkqZENHkAV8xxiFPrxJVIcwZquC01oan8z57VqE2qDr8IeO/IN684vofKMKtrTCBToaMMTuiZXjCjleHGWHWK5so2//bCW/HTkas8Ob8d3PdZh6IOAyAgtsc8CFvBrPnfJWmd73C+XrZkLxFvS3wmK6bXKv5JRK9m9fazGuKobMKmvaa1nv5C7WJqNW3W4+wm6ZwS3sUvXWojrZP/Uu35jypy4gwqsv0zZ3yz/3DhGXaeRk890ygzQF7DPJrJUtnHKAZhyBtMoMWsUb86c6G3YHbLDe7WgSf5jWuS9243r3 adipster@adipster-Predator-G3-710"
+          ]
+        },
+        "replicas": 1
+      }
+    }
+  }
+}
